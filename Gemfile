@@ -4,6 +4,8 @@ gem 'rails', '5.1.6'
 gem 'bcrypt', '3.1.12'
 gem 'puma', '3.9.1'
 gem 'dotenv-rails'
+# クロスドメイン対応
+gem 'rack-cors'
 
 group :development, :test do
   gem 'mysql2', '>= 0.3.18', '< 0.6.0'
