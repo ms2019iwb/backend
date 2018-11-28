@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  report_status: MyString
+  ambulance_status: MyString
+  fire_fighting_status: MyString
+  address: MyString
+  lat: MyString
+  lng: MyString
+  post_user_id: MyString
+
+two:
+  title: MyString
+  report_status: MyString
+  ambulance_status: MyString
+  fire_fighting_status: MyString
+  address: MyString
+  lat: MyString
+  lng: MyString
+  post_user_id: MyString

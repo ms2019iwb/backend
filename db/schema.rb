@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20181121093002) do
+ActiveRecord::Schema.define(version: 20181128054719) do
+
+  create_table "posts", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
+    t.string "title"
+    t.string "report_status"
+    t.string "ambulance_status"
+    t.string "fire_fighting_status"
+    t.string "address"
+    t.string "lat"
+    t.string "lng"
+    t.string "post_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8mb4" do |t|
     t.string "email_address"
