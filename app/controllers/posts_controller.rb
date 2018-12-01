@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   # GET /posts
   # 火災レポート指定件数取得
   def index
-    @posts = Post.where(id: params[:start_id]..params[:end_id])
+    @posts = Post.where(id: params[:start_id]..params[:end_id]).reverse_order
 
     render json: @posts
   end
