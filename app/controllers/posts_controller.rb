@@ -1,4 +1,12 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show]
+
+  # GET /posts/:id
+  # 火災レポート取得
+  def show
+    render json: @post
+  end
+
   # POST /posts
   # 火災レポート新規登録
   def create
@@ -13,11 +21,11 @@ class PostsController < ApplicationController
 
   private
     def set_post
-      @post = Post.find(post_params[:id])
+      @post = Post.find(params[:id])
     end
 
     # 許可するパラメータ
     def post_params
-      params.require(:post).permit(:id, :title, :report_status, :ambulance_status, :fire_fighting_status, :address, :lat, :lng, :post_user_id)
+      params.fetch(:post, {}).permit(:id, :title, :report_status, :ambulance_status, :fire_fighting_status, :address, :lat, :lng, :post_user_id)
     end
 end
