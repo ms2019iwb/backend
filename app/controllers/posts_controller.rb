@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show]
+  before_action :set_post, only: [:show, :update]
 
   # GET /posts
   # 火災レポート指定件数取得
@@ -31,7 +31,17 @@ class PostsController < ApplicationController
     if @post.save
       render json: @post, status: :created, location: @post
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: @post.errors, status: :unprocessable_entity
+    end
+  end
+
+  # PATCH/PUT /posts/:id
+  # 火災レポート更新
+  def update
+    if @post.update(post_params)
+      render json: @post
+    else
+      render json: @post.errors, status: :unprocessable_entity
     end
   end
 
