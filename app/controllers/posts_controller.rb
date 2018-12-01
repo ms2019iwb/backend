@@ -1,6 +1,14 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show]
 
+  # GET /posts
+  # 火災レポート指定件数取得
+  def index
+    @users = Post.where(id: params[:start_id]..params[:end_id])
+
+    render json: @users
+  end
+
   # GET /posts/:id
   # 火災レポート取得
   def show
@@ -26,6 +34,6 @@ class PostsController < ApplicationController
 
     # 許可するパラメータ
     def post_params
-      params.fetch(:post, {}).permit(:id, :title, :report_status, :ambulance_status, :fire_fighting_status, :address, :lat, :lng, :post_user_id)
+      params.fetch(:post, {}).permit(:id, :title, :report_status, :ambulance_status, :fire_fighting_status, :address, :lat, :lng, :post_user_id, :start_id, :end_id)
     end
 end
