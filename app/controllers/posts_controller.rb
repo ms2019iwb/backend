@@ -17,6 +17,22 @@ class PostsController < ApplicationController
     render json: @number
   end
 
+  # GET /burncount
+  # 炎上中総数取得
+  def burnCount
+    @number = Post.where(fire_fighting_status: "1").count
+
+    render json: @number
+  end
+
+  # GET /excount
+  # 消火済み総数取得
+  def exCount
+    @number = Post.where(fire_fighting_status: "2").count
+
+    render json: @number
+  end
+
   # GET /posts/:id
   # 火災レポート取得
   def show

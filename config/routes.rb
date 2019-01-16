@@ -4,4 +4,6 @@ Rails.application.routes.draw do
 
   resources :posts
   get 'postscount', to: 'posts#count'
+  get 'burncount', to: 'posts#burnCount'
+  get 'excount', to: 'posts#exCount'
 end
