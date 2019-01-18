@@ -9,6 +9,13 @@ class PostsController < ApplicationController
     render json: @posts
   end
 
+  # GET /lastpost
+  def last
+    @post = Post.last
+
+    render json: @post
+  end
+
   # GET /postscount
   # 火災レポート総数取得
   def count

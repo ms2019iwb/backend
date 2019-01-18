@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   post 'login', to: 'users#login'
 
   resources :posts
+  get 'lastpost', to: 'posts#last'
   get 'postscount', to: 'posts#count'
   get 'burncount', to: 'posts#burnCount'
   get 'excount', to: 'posts#exCount'
